@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @variants group-focus, focus, group-hover, hover, responsive {
+    .ebb {
+      background-color: #e8e3e1;
+    }
+    .indigo {
+      color: #3b0e6f;
+    }
+    .glow:after {
+      position: absolute;
+      content: "";
+      top: 2px;
+      left: 2px;
+      right: 0;
+      z-index: -1;
+      height: 105%;
+      width: 105%;
+      margin: 0 auto;
+      transform: scale(0.9);
+      -webkit-filter: blur(15px);
+      filter: blur(15px);
+      background: linear-gradient(
+        to left,
+        #ff5770,
+        #e4428d,
+        #c42da8,
+        #9e16c3,
+        #6501de,
+        #9e16c3,
+        #c42da8,
+        #e4428d,
+        #ff5770
+      );
+      background-size: 200% 200%;
+      animation: animateGlow 5s linear infinite;
+    }
+  }
+}
+
+.work {
+  font-family: "Work Sans", sans-serif;
+}
+
+.marquee {
+  white-space: nowrap;
+  animation: moveLeft infinite alternate 75s linear;
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-250vw);
+  }
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
